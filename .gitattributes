@@ -1,0 +1,4 @@
+*.jai linguist-language=Odin
+
+# Auto detect text files and perform LF normalization
+* text=auto
