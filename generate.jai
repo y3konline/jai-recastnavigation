@@ -1,5 +1,12 @@
 BASE_PATH :: "src/recast-navigation-77f7e54";
 
+DECLARATIONS_TO_OMIT :: string.[
+    // We have custom declarations for these in module.jai:
+    "DT_TILECACHE_MAGIC",
+    "DT_NAVMESH_STATE_MAGIC",
+    "DT_NAVMESH_MAGIC",
+];
+
 #run,stallable {
     set_build_options_dc(.{do_output=false});
     root_options := get_build_options();
@@ -188,20 +195,19 @@ generate_bindings :: (args: [] string) -> bool {
         if !success return false;
     }
 
-    bindings_dir: string;
+    output_file: string;
     libs_dir: string;
 
     if OS == .WINDOWS {
-        bindings_dir = "bindings/windows";
+        output_file = "windows.jai";
         libs_dir = "lib/windows";
     } else #if OS == .LINUX {
-        bindings_dir = "bindings/linux";
+        output_file = "linux.jai";
         libs_dir = "lib/linux";
     } else {
         assert(false, "OS not supported");
     }
 
-    make_directory_if_it_does_not_exist(bindings_dir, recursive=true);
     make_directory_if_it_does_not_exist(libs_dir, recursive=true);
 
     //================
@@ -212,107 +218,38 @@ generate_bindings :: (args: [] string) -> bool {
         opts: Generate_Bindings_Options;
         using opts;
 
-        array_add(*libnames, tprint("%/Recast", libs_dir));
+        array_add(*libpaths, libs_dir);
+        array_add(*libnames, "Recast");
+        array_add(*libnames, "Detour");
+        array_add(*libnames, "DetourTileCache");
+        array_add(*libnames, "DetourCrowd");
+        array_add(*libnames, "DebugUtils");
         array_add(*include_paths, tprint("%/Recast/Include", BASE_PATH));
-        array_add(*source_files, tprint("%/Recast/Include/Recast.h", BASE_PATH));
-        array_add(*extra_clang_arguments, "-x", "c++", "-DWIN32_LEAN_AND_MEAN");
-
-        log_stripped_declarations = false;
-
-        success &&= generate_bindings(opts, tprint("%/Recast.jai", bindings_dir));
-    }
-
-    //================
-    // Detour Bindings
-    //----------------
-    log("===============\nGenerating Detour Bindings...\n---------------");
-    {
-        opts: Generate_Bindings_Options;
-        using opts;
-
-        array_add(*libnames, tprint("%/Detour", libs_dir));
         array_add(*include_paths, tprint("%/Detour/Include", BASE_PATH));
-        array_add(*source_files, tprint("%/Detour/Include/DetourCommon.h", BASE_PATH));
-        array_add(*source_files, tprint("%/Detour/Include/DetourNavMesh.h", BASE_PATH));
-        array_add(*source_files, tprint("%/Detour/Include/DetourNavMeshBuilder.h", BASE_PATH));
-        array_add(*source_files, tprint("%/Detour/Include/DetourNavMeshQuery.h", BASE_PATH));
-        array_add(*source_files, tprint("%/Detour/Include/DetourNode.h", BASE_PATH));
-        array_add(*extra_clang_arguments, "-x", "c++", "-DWIN32_LEAN_AND_MEAN");
-
-        log_stripped_declarations = false;
-
-        success &&= generate_bindings(opts, tprint("%/Detour.jai", bindings_dir));
-    }
-
-    //================
-    // DetourTileCache Bindings
-    //----------------
-    log("===============\nGenerating DetourTileCache Bindings...\n---------------");
-    {
-        opts: Generate_Bindings_Options;
-        using opts;
-
-        array_add(*libnames, tprint("%/DetourTileCache", libs_dir));
         array_add(*include_paths, tprint("%/DetourTileCache/Include", BASE_PATH));
-        array_add(*include_paths, tprint("%/Detour/Include", BASE_PATH));
-        array_add(*source_files, tprint("%/DetourTileCache/Include/DetourTileCache.h", BASE_PATH));
-        array_add(*source_files, tprint("%/DetourTileCache/Include/DetourTileCacheBuilder.h", BASE_PATH));
-        array_add(*extra_clang_arguments, "-x", "c++", "-DWIN32_LEAN_AND_MEAN");
-
-        log_stripped_declarations = false;
-
-        success &&= generate_bindings(opts, tprint("%/DetourTileCache.jai", bindings_dir));
-    }
-
-    //================
-    // DetourCrowd Bindings
-    //----------------
-    log("===============\nGenerating DetourCrowd Bindings...\n---------------");
-    {
-        opts: Generate_Bindings_Options;
-        using opts;
-
-        array_add(*libnames, tprint("%/DetourCrowd", libs_dir));
         array_add(*include_paths, tprint("%/DetourCrowd/Include", BASE_PATH));
-        array_add(*include_paths, tprint("%/Detour/Include", BASE_PATH));
-        array_add(*source_files, tprint("%/DetourCrowd/Include/DetourCrowd.h", BASE_PATH));
-        array_add(*source_files, tprint("%/DetourCrowd/Include/DetourLocalBoundary.h", BASE_PATH));
-        array_add(*source_files, tprint("%/DetourCrowd/Include/DetourObstacleAvoidance.h", BASE_PATH));
-        array_add(*source_files, tprint("%/DetourCrowd/Include/DetourPathCorridor.h", BASE_PATH));
-        array_add(*source_files, tprint("%/DetourCrowd/Include/DetourPathQueue.h", BASE_PATH));
-        array_add(*source_files, tprint("%/DetourCrowd/Include/DetourProximityGrid.h", BASE_PATH));
-        array_add(*extra_clang_arguments, "-x", "c++", "-DWIN32_LEAN_AND_MEAN");
-
-        log_stripped_declarations = false;
-
-        success &&= generate_bindings(opts, tprint("%/DetourCrowd.jai", bindings_dir));
-    }
-
-    //================
-    // DebugUtils Bindings
-    //----------------
-    log("===============\nGenerating DebugUtils Bindings...\n---------------");
-    {
-        opts: Generate_Bindings_Options;
-        using opts;
-
-        array_add(*libnames, tprint("%/DebugUtils", libs_dir));
         array_add(*include_paths, tprint("%/DebugUtils/Include", BASE_PATH));
-        array_add(*include_paths, tprint("%/Recast/Include", BASE_PATH));
-        array_add(*include_paths, tprint("%/Detour/Include", BASE_PATH));
-        array_add(*include_paths, tprint("%/DetourTileCache/Include", BASE_PATH));
-        array_add(*source_files, tprint("%/DebugUtils/Include/DebugDraw.h", BASE_PATH));
-        array_add(*source_files, tprint("%/DebugUtils/Include/DetourDebugDraw.h", BASE_PATH));
-        array_add(*source_files, tprint("%/DebugUtils/Include/RecastDebugDraw.h", BASE_PATH));
-        array_add(*source_files, tprint("%/DebugUtils/Include/RecastDump.h", BASE_PATH));
+        array_add(*source_files, "src/all_includes.h");
         array_add(*extra_clang_arguments, "-x", "c++", "-DWIN32_LEAN_AND_MEAN");
 
         log_stripped_declarations = false;
+        visitor = recast_visitor;
 
-        success &&= generate_bindings(opts, tprint("%/DebugUtils.jai", bindings_dir));
+        success &&= generate_bindings(opts, output_file);
     }
 
     return success;
+}
+
+recast_visitor :: (decl: *Declaration, parent_decl: *Declaration) -> Declaration_Visit_Result {
+    if !parent_decl {
+        if array_find(DECLARATIONS_TO_OMIT, decl.name) {
+                decl.decl_flags |= .OMIT_FROM_OUTPUT;
+                return .STOP;
+        }
+    }
+
+    return .RECURSE;
 }
 
 #import "Basic";
