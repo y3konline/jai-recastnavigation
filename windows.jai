@@ -1,7 +1,7 @@
 //
 // This file was auto-generated using the following command:
 //
-// jai ./generate.jai
+// jai ./generate.jai - -compile
 //
 
 
@@ -2729,6 +2729,219 @@ duDisplayList :: struct {
     virtual_end :: (this: *duDisplayList) -> void #cpp_method #foreign debugutils "?end@duDisplayList@@UEAAXXZ";
 }
 
+duDebugDrawTriMesh :: (dd: *duDebugDraw, verts: *float, nverts: s32, tris: *s32, normals: *float, ntris: s32, flags: *u8, texScale: float) -> void #foreign debugutils "?duDebugDrawTriMesh@@YAXPEAUduDebugDraw@@PEBMHPEBH1HPEBEM@Z";
+duDebugDrawTriMeshSlope :: (dd: *duDebugDraw, verts: *float, nverts: s32, tris: *s32, normals: *float, ntris: s32, walkableSlopeAngle: float, texScale: float) -> void #foreign debugutils "?duDebugDrawTriMeshSlope@@YAXPEAUduDebugDraw@@PEBMHPEBH1HMM@Z";
+
+duDebugDrawHeightfieldSolid :: (dd: *duDebugDraw, hf: *rcHeightfield) -> void #foreign debugutils "?duDebugDrawHeightfieldSolid@@YAXPEAUduDebugDraw@@AEBUrcHeightfield@@@Z";
+duDebugDrawHeightfieldSolid :: (dd: *duDebugDraw, hf: rcHeightfield) #no_context {
+    duDebugDrawHeightfieldSolid(dd, *hf);
+}
+duDebugDrawHeightfieldWalkable :: (dd: *duDebugDraw, hf: *rcHeightfield) -> void #foreign debugutils "?duDebugDrawHeightfieldWalkable@@YAXPEAUduDebugDraw@@AEBUrcHeightfield@@@Z";
+duDebugDrawHeightfieldWalkable :: (dd: *duDebugDraw, hf: rcHeightfield) #no_context {
+    duDebugDrawHeightfieldWalkable(dd, *hf);
+}
+
+duDebugDrawCompactHeightfieldSolid :: (dd: *duDebugDraw, chf: *rcCompactHeightfield) -> void #foreign debugutils "?duDebugDrawCompactHeightfieldSolid@@YAXPEAUduDebugDraw@@AEBUrcCompactHeightfield@@@Z";
+duDebugDrawCompactHeightfieldSolid :: (dd: *duDebugDraw, chf: rcCompactHeightfield) #no_context {
+    duDebugDrawCompactHeightfieldSolid(dd, *chf);
+}
+duDebugDrawCompactHeightfieldRegions :: (dd: *duDebugDraw, chf: *rcCompactHeightfield) -> void #foreign debugutils "?duDebugDrawCompactHeightfieldRegions@@YAXPEAUduDebugDraw@@AEBUrcCompactHeightfield@@@Z";
+duDebugDrawCompactHeightfieldRegions :: (dd: *duDebugDraw, chf: rcCompactHeightfield) #no_context {
+    duDebugDrawCompactHeightfieldRegions(dd, *chf);
+}
+duDebugDrawCompactHeightfieldDistance :: (dd: *duDebugDraw, chf: *rcCompactHeightfield) -> void #foreign debugutils "?duDebugDrawCompactHeightfieldDistance@@YAXPEAUduDebugDraw@@AEBUrcCompactHeightfield@@@Z";
+duDebugDrawCompactHeightfieldDistance :: (dd: *duDebugDraw, chf: rcCompactHeightfield) #no_context {
+    duDebugDrawCompactHeightfieldDistance(dd, *chf);
+}
+
+duDebugDrawHeightfieldLayer :: (dd: *duDebugDraw, layer: *rcHeightfieldLayer, idx: s32) -> void #foreign debugutils "?duDebugDrawHeightfieldLayer@@YAXPEAUduDebugDraw@@AEBUrcHeightfieldLayer@@H@Z";
+duDebugDrawHeightfieldLayer :: (dd: *duDebugDraw, layer: rcHeightfieldLayer, idx: s32) #no_context {
+    duDebugDrawHeightfieldLayer(dd, *layer, idx);
+}
+duDebugDrawHeightfieldLayers :: (dd: *duDebugDraw, lset: *rcHeightfieldLayerSet) -> void #foreign debugutils "?duDebugDrawHeightfieldLayers@@YAXPEAUduDebugDraw@@AEBUrcHeightfieldLayerSet@@@Z";
+duDebugDrawHeightfieldLayers :: (dd: *duDebugDraw, lset: rcHeightfieldLayerSet) #no_context {
+    duDebugDrawHeightfieldLayers(dd, *lset);
+}
+
+duDebugDrawRegionConnections :: (dd: *duDebugDraw, cset: *rcContourSet, alpha: float = 1.0) -> void #foreign debugutils "?duDebugDrawRegionConnections@@YAXPEAUduDebugDraw@@AEBUrcContourSet@@M@Z";
+duDebugDrawRegionConnections :: (dd: *duDebugDraw, cset: rcContourSet, alpha: float = 1.0) #no_context {
+    duDebugDrawRegionConnections(dd, *cset, alpha);
+}
+duDebugDrawRawContours :: (dd: *duDebugDraw, cset: *rcContourSet, alpha: float = 1.0) -> void #foreign debugutils "?duDebugDrawRawContours@@YAXPEAUduDebugDraw@@AEBUrcContourSet@@M@Z";
+duDebugDrawRawContours :: (dd: *duDebugDraw, cset: rcContourSet, alpha: float = 1.0) #no_context {
+    duDebugDrawRawContours(dd, *cset, alpha);
+}
+duDebugDrawContours :: (dd: *duDebugDraw, cset: *rcContourSet, alpha: float = 1.0) -> void #foreign debugutils "?duDebugDrawContours@@YAXPEAUduDebugDraw@@AEBUrcContourSet@@M@Z";
+duDebugDrawContours :: (dd: *duDebugDraw, cset: rcContourSet, alpha: float = 1.0) #no_context {
+    duDebugDrawContours(dd, *cset, alpha);
+}
+duDebugDrawPolyMesh :: (dd: *duDebugDraw, mesh: *rcPolyMesh) -> void #foreign debugutils "?duDebugDrawPolyMesh@@YAXPEAUduDebugDraw@@AEBUrcPolyMesh@@@Z";
+duDebugDrawPolyMesh :: (dd: *duDebugDraw, mesh: rcPolyMesh) #no_context {
+    duDebugDrawPolyMesh(dd, *mesh);
+}
+duDebugDrawPolyMeshDetail :: (dd: *duDebugDraw, dmesh: *rcPolyMeshDetail) -> void #foreign debugutils "?duDebugDrawPolyMeshDetail@@YAXPEAUduDebugDraw@@AEBUrcPolyMeshDetail@@@Z";
+duDebugDrawPolyMeshDetail :: (dd: *duDebugDraw, dmesh: rcPolyMeshDetail) #no_context {
+    duDebugDrawPolyMeshDetail(dd, *dmesh);
+}
+
+DT_TILECACHE_VERSION: s32 : 1;
+
+DT_TILECACHE_NULL_AREA: u8 : 0;
+DT_TILECACHE_WALKABLE_AREA: u8 : 63;
+DT_TILECACHE_NULL_IDX: u16 : 65535;
+
+dtTileCacheLayerHeader :: struct {
+    magic:   s32; ///< Data magic
+    version: s32; ///< Data version
+    tx:      s32;
+    ty:      s32;
+    tlayer:  s32;
+    bmin:    [3] float;
+    bmax:    [3] float;
+    hmin:    u16; ///< Height min/max range
+    hmax:    u16; ///< Height min/max range
+    width:   u8; ///< Dimension of the layer.
+    height:  u8; ///< Dimension of the layer.
+    minx:    u8; ///< Usable sub-region.
+    maxx:    u8; ///< Usable sub-region.
+    miny:    u8; ///< Usable sub-region.
+    maxy:    u8; ///< Usable sub-region.
+}
+
+dtTileCacheLayer :: struct {
+    header:   *dtTileCacheLayerHeader;
+    regCount: u8; ///< Region count.
+    heights:  *u8;
+    areas:    *u8;
+    cons:     *u8;
+    regs:     *u8;
+}
+
+dtTileCacheContour :: struct {
+    nverts: s32;
+    verts:  *u8;
+    reg:    u8;
+    area:   u8;
+}
+
+dtTileCacheContourSet :: struct {
+    nconts: s32;
+    conts:  *dtTileCacheContour;
+}
+
+dtTileCachePolyMesh :: struct {
+    nvp:    s32;
+    nverts: s32; ///< Number of vertices.
+    npolys: s32; ///< Number of polygons.
+    verts:  *u16; ///< Vertices of the mesh, 3 elements per vertex.
+    polys:  *u16; ///< Polygons of the mesh, nvp*2 elements per polygon.
+    flags:  *u16; ///< Per polygon flags.
+    areas:  *u8; ///< Area ID of polygons.
+}
+
+dtTileCacheAlloc :: struct {
+    vtable: *dtTileCacheAlloc_VTable;
+}
+dtTileCacheAlloc_VTable :: struct #type_info_none {
+    Destructor: (this: *dtTileCacheAlloc, flags: Msvc_Destructor_Flags = .NONE) -> void #cpp_method;
+
+    reset: (this: *dtTileCacheAlloc) -> void #cpp_method;
+
+    alloc: (this: *dtTileCacheAlloc, size: u64) -> *void #cpp_method;
+
+    free: (this: *dtTileCacheAlloc, ptr: *void) -> void #cpp_method;
+}
+
+dtTileCacheAlloc_Destructor :: inline (this: *dtTileCacheAlloc, flags: Msvc_Destructor_Flags = .NONE) { this.vtable.Destructor(this, flags); }
+
+dtTileCacheAlloc_reset :: inline (this: *dtTileCacheAlloc) { this.vtable.reset(this); }
+
+dtTileCacheAlloc_alloc :: inline (this: *dtTileCacheAlloc, size: u64) -> *void { return this.vtable.alloc(this, size); }
+
+dtTileCacheAlloc_free :: inline (this: *dtTileCacheAlloc, ptr: *void) { this.vtable.free(this, ptr); }
+
+vtable :: (obj: *dtTileCacheAlloc) -> *dtTileCacheAlloc_VTable { return obj.vtable; }
+
+
+dtTileCacheCompressor :: struct {
+    vtable: *dtTileCacheCompressor_VTable;
+}
+dtTileCacheCompressor_VTable :: struct #type_info_none {
+    Destructor: (this: *dtTileCacheCompressor, flags: Msvc_Destructor_Flags = .NONE) -> void #cpp_method;
+
+    maxCompressedSize: (this: *dtTileCacheCompressor, bufferSize: s32) -> s32 #cpp_method;
+    compress: (this: *dtTileCacheCompressor, buffer: *u8, bufferSize: s32, compressed: *u8, maxCompressedSize: s32, compressedSize: *s32) -> dtStatus #cpp_method;
+
+    decompress: (this: *dtTileCacheCompressor, compressed: *u8, compressedSize: s32, buffer: *u8, maxBufferSize: s32, bufferSize: *s32) -> dtStatus #cpp_method;
+}
+
+dtTileCacheCompressor_Destructor :: inline (this: *dtTileCacheCompressor, flags: Msvc_Destructor_Flags = .NONE) { this.vtable.Destructor(this, flags); }
+
+dtTileCacheCompressor_maxCompressedSize :: inline (this: *dtTileCacheCompressor, bufferSize: s32) -> s32 { return this.vtable.maxCompressedSize(this, bufferSize); }
+dtTileCacheCompressor_compress :: inline (this: *dtTileCacheCompressor, buffer: *u8, bufferSize: s32, compressed: *u8, maxCompressedSize: s32, compressedSize: *s32) -> dtStatus { return this.vtable.compress(this, buffer, bufferSize, compressed, maxCompressedSize, compressedSize); }
+
+dtTileCacheCompressor_decompress :: inline (this: *dtTileCacheCompressor, compressed: *u8, compressedSize: s32, buffer: *u8, maxBufferSize: s32, bufferSize: *s32) -> dtStatus { return this.vtable.decompress(this, compressed, compressedSize, buffer, maxBufferSize, bufferSize); }
+
+vtable :: (obj: *dtTileCacheCompressor) -> *dtTileCacheCompressor_VTable { return obj.vtable; }
+
+
+DrawNavMeshFlags :: enum s32 {
+    OFFMESHCONS :: 1;
+    CLOSEDLIST  :: 2;
+    COLOR_TILES :: 4;
+
+    DU_DRAWNAVMESH_OFFMESHCONS :: OFFMESHCONS;
+    DU_DRAWNAVMESH_CLOSEDLIST  :: CLOSEDLIST;
+    DU_DRAWNAVMESH_COLOR_TILES :: COLOR_TILES;
+}
+
+duDebugDrawNavMesh :: (dd: *duDebugDraw, mesh: *dtNavMesh, flags: u8) -> void #foreign debugutils "?duDebugDrawNavMesh@@YAXPEAUduDebugDraw@@AEBVdtNavMesh@@E@Z";
+duDebugDrawNavMesh :: (dd: *duDebugDraw, mesh: dtNavMesh, flags: u8) #no_context {
+    duDebugDrawNavMesh(dd, *mesh, flags);
+}
+duDebugDrawNavMeshWithClosedList :: (dd: *duDebugDraw, mesh: *dtNavMesh, query: *dtNavMeshQuery, flags: u8) -> void #foreign debugutils "?duDebugDrawNavMeshWithClosedList@@YAXPEAUduDebugDraw@@AEBVdtNavMesh@@AEBVdtNavMeshQuery@@E@Z";
+duDebugDrawNavMeshWithClosedList :: (dd: *duDebugDraw, mesh: dtNavMesh, query: dtNavMeshQuery, flags: u8) #no_context {
+    duDebugDrawNavMeshWithClosedList(dd, *mesh, *query, flags);
+}
+duDebugDrawNavMeshNodes :: (dd: *duDebugDraw, query: *dtNavMeshQuery) -> void #foreign debugutils "?duDebugDrawNavMeshNodes@@YAXPEAUduDebugDraw@@AEBVdtNavMeshQuery@@@Z";
+duDebugDrawNavMeshNodes :: (dd: *duDebugDraw, query: dtNavMeshQuery) #no_context {
+    duDebugDrawNavMeshNodes(dd, *query);
+}
+duDebugDrawNavMeshBVTree :: (dd: *duDebugDraw, mesh: *dtNavMesh) -> void #foreign debugutils "?duDebugDrawNavMeshBVTree@@YAXPEAUduDebugDraw@@AEBVdtNavMesh@@@Z";
+duDebugDrawNavMeshBVTree :: (dd: *duDebugDraw, mesh: dtNavMesh) #no_context {
+    duDebugDrawNavMeshBVTree(dd, *mesh);
+}
+duDebugDrawNavMeshPortals :: (dd: *duDebugDraw, mesh: *dtNavMesh) -> void #foreign debugutils "?duDebugDrawNavMeshPortals@@YAXPEAUduDebugDraw@@AEBVdtNavMesh@@@Z";
+duDebugDrawNavMeshPortals :: (dd: *duDebugDraw, mesh: dtNavMesh) #no_context {
+    duDebugDrawNavMeshPortals(dd, *mesh);
+}
+duDebugDrawNavMeshPolysWithFlags :: (dd: *duDebugDraw, mesh: *dtNavMesh, polyFlags: u16, col: u32) -> void #foreign debugutils "?duDebugDrawNavMeshPolysWithFlags@@YAXPEAUduDebugDraw@@AEBVdtNavMesh@@GI@Z";
+duDebugDrawNavMeshPolysWithFlags :: (dd: *duDebugDraw, mesh: dtNavMesh, polyFlags: u16, col: u32) #no_context {
+    duDebugDrawNavMeshPolysWithFlags(dd, *mesh, polyFlags, col);
+}
+duDebugDrawNavMeshPoly :: (dd: *duDebugDraw, mesh: *dtNavMesh, ref: dtPolyRef, col: u32) -> void #foreign debugutils "?duDebugDrawNavMeshPoly@@YAXPEAUduDebugDraw@@AEBVdtNavMesh@@II@Z";
+duDebugDrawNavMeshPoly :: (dd: *duDebugDraw, mesh: dtNavMesh, ref: dtPolyRef, col: u32) #no_context {
+    duDebugDrawNavMeshPoly(dd, *mesh, ref, col);
+}
+
+duDebugDrawTileCacheLayerAreas :: (dd: *duDebugDraw, layer: *dtTileCacheLayer, cs: float, ch: float) -> void #foreign debugutils "?duDebugDrawTileCacheLayerAreas@@YAXPEAUduDebugDraw@@AEBUdtTileCacheLayer@@MM@Z";
+duDebugDrawTileCacheLayerAreas :: (dd: *duDebugDraw, layer: dtTileCacheLayer, cs: float, ch: float) #no_context {
+    duDebugDrawTileCacheLayerAreas(dd, *layer, cs, ch);
+}
+duDebugDrawTileCacheLayerRegions :: (dd: *duDebugDraw, layer: *dtTileCacheLayer, cs: float, ch: float) -> void #foreign debugutils "?duDebugDrawTileCacheLayerRegions@@YAXPEAUduDebugDraw@@AEBUdtTileCacheLayer@@MM@Z";
+duDebugDrawTileCacheLayerRegions :: (dd: *duDebugDraw, layer: dtTileCacheLayer, cs: float, ch: float) #no_context {
+    duDebugDrawTileCacheLayerRegions(dd, *layer, cs, ch);
+}
+duDebugDrawTileCacheContours :: (dd: *duDebugDraw, lcset: *dtTileCacheContourSet, orig: *float, cs: float, ch: float) -> void #foreign debugutils "?duDebugDrawTileCacheContours@@YAXPEAUduDebugDraw@@AEBUdtTileCacheContourSet@@PEBMMM@Z";
+duDebugDrawTileCacheContours :: (dd: *duDebugDraw, lcset: dtTileCacheContourSet, orig: *float, cs: float, ch: float) #no_context {
+    duDebugDrawTileCacheContours(dd, *lcset, orig, cs, ch);
+}
+
+duDebugDrawTileCachePolyMesh :: (dd: *duDebugDraw, lmesh: *dtTileCachePolyMesh, orig: *float, cs: float, ch: float) -> void #foreign debugutils "?duDebugDrawTileCachePolyMesh@@YAXPEAUduDebugDraw@@AEBUdtTileCachePolyMesh@@PEBMMM@Z";
+duDebugDrawTileCachePolyMesh :: (dd: *duDebugDraw, lmesh: dtTileCachePolyMesh, orig: *float, cs: float, ch: float) #no_context {
+    duDebugDrawTileCachePolyMesh(dd, *lmesh, orig, cs, ch);
+}
+
 duFileIO :: struct {
     vtable: *duFileIO_VTable;
 
@@ -3754,6 +3967,103 @@ debugutils :: #library "lib/windows/DebugUtils";
         assert(size_of(type_of(duDisplayList.m_depthMask)) == 1, "duDisplayList.m_depthMask has unexpected size % instead of 1", size_of(type_of(duDisplayList.m_depthMask)));
         assert(size_of(duDisplayList) == 48, "duDisplayList has size % instead of 48", size_of(duDisplayList));
     }
+
+    {
+        instance: dtTileCacheLayerHeader;
+        assert(((cast(*void)(*instance.magic)) - cast(*void)(*instance)) == 0, "dtTileCacheLayerHeader.magic has unexpected offset % instead of 0", ((cast(*void)(*instance.magic)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayerHeader.magic)) == 4, "dtTileCacheLayerHeader.magic has unexpected size % instead of 4", size_of(type_of(dtTileCacheLayerHeader.magic)));
+        assert(((cast(*void)(*instance.version)) - cast(*void)(*instance)) == 4, "dtTileCacheLayerHeader.version has unexpected offset % instead of 4", ((cast(*void)(*instance.version)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayerHeader.version)) == 4, "dtTileCacheLayerHeader.version has unexpected size % instead of 4", size_of(type_of(dtTileCacheLayerHeader.version)));
+        assert(((cast(*void)(*instance.tx)) - cast(*void)(*instance)) == 8, "dtTileCacheLayerHeader.tx has unexpected offset % instead of 8", ((cast(*void)(*instance.tx)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayerHeader.tx)) == 4, "dtTileCacheLayerHeader.tx has unexpected size % instead of 4", size_of(type_of(dtTileCacheLayerHeader.tx)));
+        assert(((cast(*void)(*instance.ty)) - cast(*void)(*instance)) == 12, "dtTileCacheLayerHeader.ty has unexpected offset % instead of 12", ((cast(*void)(*instance.ty)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayerHeader.ty)) == 4, "dtTileCacheLayerHeader.ty has unexpected size % instead of 4", size_of(type_of(dtTileCacheLayerHeader.ty)));
+        assert(((cast(*void)(*instance.tlayer)) - cast(*void)(*instance)) == 16, "dtTileCacheLayerHeader.tlayer has unexpected offset % instead of 16", ((cast(*void)(*instance.tlayer)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayerHeader.tlayer)) == 4, "dtTileCacheLayerHeader.tlayer has unexpected size % instead of 4", size_of(type_of(dtTileCacheLayerHeader.tlayer)));
+        assert(((cast(*void)(*instance.bmin)) - cast(*void)(*instance)) == 20, "dtTileCacheLayerHeader.bmin has unexpected offset % instead of 20", ((cast(*void)(*instance.bmin)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayerHeader.bmin)) == 12, "dtTileCacheLayerHeader.bmin has unexpected size % instead of 12", size_of(type_of(dtTileCacheLayerHeader.bmin)));
+        assert(((cast(*void)(*instance.bmax)) - cast(*void)(*instance)) == 32, "dtTileCacheLayerHeader.bmax has unexpected offset % instead of 32", ((cast(*void)(*instance.bmax)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayerHeader.bmax)) == 12, "dtTileCacheLayerHeader.bmax has unexpected size % instead of 12", size_of(type_of(dtTileCacheLayerHeader.bmax)));
+        assert(((cast(*void)(*instance.hmin)) - cast(*void)(*instance)) == 44, "dtTileCacheLayerHeader.hmin has unexpected offset % instead of 44", ((cast(*void)(*instance.hmin)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayerHeader.hmin)) == 2, "dtTileCacheLayerHeader.hmin has unexpected size % instead of 2", size_of(type_of(dtTileCacheLayerHeader.hmin)));
+        assert(((cast(*void)(*instance.hmax)) - cast(*void)(*instance)) == 46, "dtTileCacheLayerHeader.hmax has unexpected offset % instead of 46", ((cast(*void)(*instance.hmax)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayerHeader.hmax)) == 2, "dtTileCacheLayerHeader.hmax has unexpected size % instead of 2", size_of(type_of(dtTileCacheLayerHeader.hmax)));
+        assert(((cast(*void)(*instance.width)) - cast(*void)(*instance)) == 48, "dtTileCacheLayerHeader.width has unexpected offset % instead of 48", ((cast(*void)(*instance.width)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayerHeader.width)) == 1, "dtTileCacheLayerHeader.width has unexpected size % instead of 1", size_of(type_of(dtTileCacheLayerHeader.width)));
+        assert(((cast(*void)(*instance.height)) - cast(*void)(*instance)) == 49, "dtTileCacheLayerHeader.height has unexpected offset % instead of 49", ((cast(*void)(*instance.height)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayerHeader.height)) == 1, "dtTileCacheLayerHeader.height has unexpected size % instead of 1", size_of(type_of(dtTileCacheLayerHeader.height)));
+        assert(((cast(*void)(*instance.minx)) - cast(*void)(*instance)) == 50, "dtTileCacheLayerHeader.minx has unexpected offset % instead of 50", ((cast(*void)(*instance.minx)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayerHeader.minx)) == 1, "dtTileCacheLayerHeader.minx has unexpected size % instead of 1", size_of(type_of(dtTileCacheLayerHeader.minx)));
+        assert(((cast(*void)(*instance.maxx)) - cast(*void)(*instance)) == 51, "dtTileCacheLayerHeader.maxx has unexpected offset % instead of 51", ((cast(*void)(*instance.maxx)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayerHeader.maxx)) == 1, "dtTileCacheLayerHeader.maxx has unexpected size % instead of 1", size_of(type_of(dtTileCacheLayerHeader.maxx)));
+        assert(((cast(*void)(*instance.miny)) - cast(*void)(*instance)) == 52, "dtTileCacheLayerHeader.miny has unexpected offset % instead of 52", ((cast(*void)(*instance.miny)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayerHeader.miny)) == 1, "dtTileCacheLayerHeader.miny has unexpected size % instead of 1", size_of(type_of(dtTileCacheLayerHeader.miny)));
+        assert(((cast(*void)(*instance.maxy)) - cast(*void)(*instance)) == 53, "dtTileCacheLayerHeader.maxy has unexpected offset % instead of 53", ((cast(*void)(*instance.maxy)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayerHeader.maxy)) == 1, "dtTileCacheLayerHeader.maxy has unexpected size % instead of 1", size_of(type_of(dtTileCacheLayerHeader.maxy)));
+        assert(size_of(dtTileCacheLayerHeader) == 56, "dtTileCacheLayerHeader has size % instead of 56", size_of(dtTileCacheLayerHeader));
+    }
+
+    {
+        instance: dtTileCacheLayer;
+        assert(((cast(*void)(*instance.header)) - cast(*void)(*instance)) == 0, "dtTileCacheLayer.header has unexpected offset % instead of 0", ((cast(*void)(*instance.header)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayer.header)) == 8, "dtTileCacheLayer.header has unexpected size % instead of 8", size_of(type_of(dtTileCacheLayer.header)));
+        assert(((cast(*void)(*instance.regCount)) - cast(*void)(*instance)) == 8, "dtTileCacheLayer.regCount has unexpected offset % instead of 8", ((cast(*void)(*instance.regCount)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayer.regCount)) == 1, "dtTileCacheLayer.regCount has unexpected size % instead of 1", size_of(type_of(dtTileCacheLayer.regCount)));
+        assert(((cast(*void)(*instance.heights)) - cast(*void)(*instance)) == 16, "dtTileCacheLayer.heights has unexpected offset % instead of 16", ((cast(*void)(*instance.heights)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayer.heights)) == 8, "dtTileCacheLayer.heights has unexpected size % instead of 8", size_of(type_of(dtTileCacheLayer.heights)));
+        assert(((cast(*void)(*instance.areas)) - cast(*void)(*instance)) == 24, "dtTileCacheLayer.areas has unexpected offset % instead of 24", ((cast(*void)(*instance.areas)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayer.areas)) == 8, "dtTileCacheLayer.areas has unexpected size % instead of 8", size_of(type_of(dtTileCacheLayer.areas)));
+        assert(((cast(*void)(*instance.cons)) - cast(*void)(*instance)) == 32, "dtTileCacheLayer.cons has unexpected offset % instead of 32", ((cast(*void)(*instance.cons)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayer.cons)) == 8, "dtTileCacheLayer.cons has unexpected size % instead of 8", size_of(type_of(dtTileCacheLayer.cons)));
+        assert(((cast(*void)(*instance.regs)) - cast(*void)(*instance)) == 40, "dtTileCacheLayer.regs has unexpected offset % instead of 40", ((cast(*void)(*instance.regs)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheLayer.regs)) == 8, "dtTileCacheLayer.regs has unexpected size % instead of 8", size_of(type_of(dtTileCacheLayer.regs)));
+        assert(size_of(dtTileCacheLayer) == 48, "dtTileCacheLayer has size % instead of 48", size_of(dtTileCacheLayer));
+    }
+
+    {
+        instance: dtTileCacheContour;
+        assert(((cast(*void)(*instance.nverts)) - cast(*void)(*instance)) == 0, "dtTileCacheContour.nverts has unexpected offset % instead of 0", ((cast(*void)(*instance.nverts)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheContour.nverts)) == 4, "dtTileCacheContour.nverts has unexpected size % instead of 4", size_of(type_of(dtTileCacheContour.nverts)));
+        assert(((cast(*void)(*instance.verts)) - cast(*void)(*instance)) == 8, "dtTileCacheContour.verts has unexpected offset % instead of 8", ((cast(*void)(*instance.verts)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheContour.verts)) == 8, "dtTileCacheContour.verts has unexpected size % instead of 8", size_of(type_of(dtTileCacheContour.verts)));
+        assert(((cast(*void)(*instance.reg)) - cast(*void)(*instance)) == 16, "dtTileCacheContour.reg has unexpected offset % instead of 16", ((cast(*void)(*instance.reg)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheContour.reg)) == 1, "dtTileCacheContour.reg has unexpected size % instead of 1", size_of(type_of(dtTileCacheContour.reg)));
+        assert(((cast(*void)(*instance.area)) - cast(*void)(*instance)) == 17, "dtTileCacheContour.area has unexpected offset % instead of 17", ((cast(*void)(*instance.area)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheContour.area)) == 1, "dtTileCacheContour.area has unexpected size % instead of 1", size_of(type_of(dtTileCacheContour.area)));
+        assert(size_of(dtTileCacheContour) == 24, "dtTileCacheContour has size % instead of 24", size_of(dtTileCacheContour));
+    }
+
+    {
+        instance: dtTileCacheContourSet;
+        assert(((cast(*void)(*instance.nconts)) - cast(*void)(*instance)) == 0, "dtTileCacheContourSet.nconts has unexpected offset % instead of 0", ((cast(*void)(*instance.nconts)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheContourSet.nconts)) == 4, "dtTileCacheContourSet.nconts has unexpected size % instead of 4", size_of(type_of(dtTileCacheContourSet.nconts)));
+        assert(((cast(*void)(*instance.conts)) - cast(*void)(*instance)) == 8, "dtTileCacheContourSet.conts has unexpected offset % instead of 8", ((cast(*void)(*instance.conts)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCacheContourSet.conts)) == 8, "dtTileCacheContourSet.conts has unexpected size % instead of 8", size_of(type_of(dtTileCacheContourSet.conts)));
+        assert(size_of(dtTileCacheContourSet) == 16, "dtTileCacheContourSet has size % instead of 16", size_of(dtTileCacheContourSet));
+    }
+
+    {
+        instance: dtTileCachePolyMesh;
+        assert(((cast(*void)(*instance.nvp)) - cast(*void)(*instance)) == 0, "dtTileCachePolyMesh.nvp has unexpected offset % instead of 0", ((cast(*void)(*instance.nvp)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCachePolyMesh.nvp)) == 4, "dtTileCachePolyMesh.nvp has unexpected size % instead of 4", size_of(type_of(dtTileCachePolyMesh.nvp)));
+        assert(((cast(*void)(*instance.nverts)) - cast(*void)(*instance)) == 4, "dtTileCachePolyMesh.nverts has unexpected offset % instead of 4", ((cast(*void)(*instance.nverts)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCachePolyMesh.nverts)) == 4, "dtTileCachePolyMesh.nverts has unexpected size % instead of 4", size_of(type_of(dtTileCachePolyMesh.nverts)));
+        assert(((cast(*void)(*instance.npolys)) - cast(*void)(*instance)) == 8, "dtTileCachePolyMesh.npolys has unexpected offset % instead of 8", ((cast(*void)(*instance.npolys)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCachePolyMesh.npolys)) == 4, "dtTileCachePolyMesh.npolys has unexpected size % instead of 4", size_of(type_of(dtTileCachePolyMesh.npolys)));
+        assert(((cast(*void)(*instance.verts)) - cast(*void)(*instance)) == 16, "dtTileCachePolyMesh.verts has unexpected offset % instead of 16", ((cast(*void)(*instance.verts)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCachePolyMesh.verts)) == 8, "dtTileCachePolyMesh.verts has unexpected size % instead of 8", size_of(type_of(dtTileCachePolyMesh.verts)));
+        assert(((cast(*void)(*instance.polys)) - cast(*void)(*instance)) == 24, "dtTileCachePolyMesh.polys has unexpected offset % instead of 24", ((cast(*void)(*instance.polys)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCachePolyMesh.polys)) == 8, "dtTileCachePolyMesh.polys has unexpected size % instead of 8", size_of(type_of(dtTileCachePolyMesh.polys)));
+        assert(((cast(*void)(*instance.flags)) - cast(*void)(*instance)) == 32, "dtTileCachePolyMesh.flags has unexpected offset % instead of 32", ((cast(*void)(*instance.flags)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCachePolyMesh.flags)) == 8, "dtTileCachePolyMesh.flags has unexpected size % instead of 8", size_of(type_of(dtTileCachePolyMesh.flags)));
+        assert(((cast(*void)(*instance.areas)) - cast(*void)(*instance)) == 40, "dtTileCachePolyMesh.areas has unexpected offset % instead of 40", ((cast(*void)(*instance.areas)) - cast(*void)(*instance)));
+        assert(size_of(type_of(dtTileCachePolyMesh.areas)) == 8, "dtTileCachePolyMesh.areas has unexpected size % instead of 8", size_of(type_of(dtTileCachePolyMesh.areas)));
+        assert(size_of(dtTileCachePolyMesh) == 48, "dtTileCachePolyMesh has size % instead of 48", size_of(dtTileCachePolyMesh));
+    }
+
+    assert(size_of(dtTileCacheAlloc) == 8, "dtTileCacheAlloc has size % instead of 8", size_of(dtTileCacheAlloc));
+
+    assert(size_of(dtTileCacheCompressor) == 8, "dtTileCacheCompressor has size % instead of 8", size_of(dtTileCacheCompressor));
 
     assert(size_of(duFileIO) == 8, "duFileIO has size % instead of 8", size_of(duFileIO));
 }

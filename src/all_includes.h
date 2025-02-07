@@ -3,4 +3,6 @@
 #include "DetourCrowd.h"
 #include "DetourObstacleAvoidance.h"
 #include "DebugDraw.h"
+#include "RecastDebugDraw.h"
+#include "DetourDebugDraw.h"
 #include "RecastDump.h"
